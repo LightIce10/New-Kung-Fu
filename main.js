@@ -2,9 +2,67 @@
 
 // HTML Variables
 let charNameEl = document.getElementById("char-name");
-
+let charQouteEl = document.getElementById("char-qoute");
+let charImgEl = document.getElementById("char-img");
+let heading = document.getElementById("text");
+let newP = document.getElementById("pTheme");
 // Button Event Listener
 document.getElementById("btn").addEventListener("click", btnClicked);
+document.getElementById("theme-btn").addEventListener("click", themeChange);
+
+// Functions
+function themeChange() {
+  let themeInput = document.getElementById("theme-in").value.toLowerCase();
+
+  if (themeInput === "dark" || themeInput === "black") {
+    document.getElementById("bodyTheme").style.background =
+      "rgba(0, 0, 0, 0.7)";
+    charNameEl.style.color = "white";
+    heading.style.color = "white";
+    newP.style.color = "white";
+  } else if (themeInput === "light" || themeInput === "white") {
+    document.getElementById("bodyTheme").style.background =
+      "rgba(255, 255, 255, 0.7)";
+    charNameEl.style.color = "black";
+    heading.style.color = "black";
+    newP.style.color = "black";
+  } else if (
+    themeInput === "random" ||
+    themeInput === "colour" ||
+    themeInput === "random colour"
+  ) {
+    // charNameEl
+    let r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let a = (Math.random() * 1).toFixed(1);
+
+    // bodyTheme
+    let bodyR = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let bodyG = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let bodyB = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let bodyA = (Math.random() * 1).toFixed(1);
+
+    // heading
+    let headingR = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let headingG = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let headingB = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let headingA = (Math.random() * 1).toFixed(1);
+
+    // newP
+    let newPR = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let newPG = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let newPB = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+    let newPA = (Math.random() * 1).toFixed(1);
+
+    document.getElementById(
+      "bodyTheme"
+    ).style.background = `rgba(${bodyR}, ${bodyG}, ${bodyB}, ${bodyA})`;
+    charNameEl.style.color = `rgba(${r}, ${g}, ${b}, ${a})`;
+    heading.style.color = `rgba(${headingR}, ${headingG}, ${headingB}, ${headingA})`;
+    newP.style.color = `rgba(${newPR}, ${newPG}, ${newPB}, ${newPA})`;
+  }
+}
 
 function btnClicked() {
   // Input
@@ -12,83 +70,85 @@ function btnClicked() {
 
   // If statement - Test the Input
   if (name === "po" || name === "dragon warrior" || name === "kung fu panda") {
-    document.getElementById("char-name").innerHTML = "Po";
-    document.getElementById("char-qoute").innerHTML =
-      "Buddy, I am the Dragon Warrior!";
-    document.getElementById("char-img").src = "img/po.png";
+    charNameEl.innerHTML = "Po";
+    charQouteEl.innerHTML = "Buddy, I am the Dragon Warrior!";
+    charImgEl.src = "img/po.png";
   } else if (name === "tigress" || name === "master tigress") {
-    document.getElementById("char-name").innerHTML = "Tigress";
-    document.getElementById("char-qoute").innerHTML = "That was hardcore!";
-    document.getElementById("char-img").src = "img/tigress.png";
+    charNameEl.innerHTML = "Tigress";
+    charQouteEl.innerHTML = "That was hardcore!";
+    charImgEl.src = "img/tigress.png";
   } else if (name === "mantis" || name === "master mantis") {
-    document.getElementById("char-name").innerHTML = "Mantis";
-    document.getElementById("char-qoute").innerHTML = "Fear the Bug!";
-    document.getElementById("char-img").src = "img/mantis.png";
+    charNameEl.innerHTML = "Mantis";
+    charQouteEl.innerHTML = "Fear the Bug!";
+    charImgEl.src = "img/mantis.png";
   } else if (name === "monkey" || name === "master monkey") {
-    document.getElementById("char-name").innerHTML = "Monkey";
-    document.getElementById("char-qoute").innerHTML =
+    charNameEl.innerHTML = "Monkey";
+    charQouteEl.innerHTML =
       "At the first sign of trouble, I'll give you a signal. Ka-ka! Kee-kee!";
-    document.getElementById("char-img").src = "img/monkey.png";
+    charImgEl.src = "img/monkey.png";
   } else if (name === "viper" || name === "master viper") {
-    document.getElementById("char-name").innerHTML = "Viper";
-    document.getElementById("char-qoute").innerHTML =
-      "I don't need to bite to fight!";
-    document.getElementById("char-img").src = "img/viper.png";
+    charNameEl.innerHTML = "Viper";
+    charQouteEl.innerHTML = "I don't need to bite to fight!";
+    charImgEl.src = "img/viper.png";
   } else if (name === "shifu" || name === "master shifu") {
-    document.getElementById("char-name").innerHTML = "Master Shifu";
-    document.getElementById("char-qoute").innerHTML =
+    charNameEl.innerHTML = "Master Shifu";
+    charQouteEl.innerHTML =
       "If you only do what you can do, you will never be more than you are now.";
-    document.getElementById("char-img").src = "img/shifu.png";
+    charImgEl.src = "img/shifu.png";
   } else if (name === "oogway" || name === "master oogway") {
-    document.getElementById("char-name").innerHTML = "Master Oogway";
-    document.getElementById("char-qoute").innerHTML =
+    charNameEl.innerHTML = "Master Oogway";
+    charQouteEl.innerHTML =
       "You are too concerned with what was and what will be. There's a saying: Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the present.";
-    document.getElementById("char-img").src = "img/oogway.png";
+    charImgEl.src = "img/oogway.png";
   } else if (name === "shen") {
-    document.getElementById("char-name").innerHTML = "Shen";
-    document.getElementById("char-qoute").innerHTML =
+    charNameEl.innerHTML = "Shen";
+    charQouteEl.innerHTML =
       "You think knowing will heal you, huh? Fill some... crater in your soul. Well, here's your answer. Your parents didn't love you. But here... let me heal you.";
-    document.getElementById("char-img").src = "img/shen.png";
-  } else if (name === "boss wolf") {
-    document.getElementById("char-name").innerHTML = "Boss Wolf";
-    document.getElementById("char-qoute").innerHTML =
+    charImgEl.src = "img/shen.png";
+  } else if (name === "boss wolf" || name === "wolf" || name === "wolf boss") {
+    charNameEl.innerHTML = "Boss Wolf";
+    charQouteEl.innerHTML =
       "Guess nobody told you: If you mess with the wolf, you get the fangs.";
-    document.getElementById("char-img").src = "img/boss-wolf.png";
+    charImgEl.src = "img/boss-wolf.png";
   } else if (name === "crane" || name === "master crane") {
-    document.getElementById("char-name").innerHTML = "Crane";
-    document.getElementById("char-qoute").innerHTML =
+    charNameEl.innerHTML = "Crane";
+    charQouteEl.innerHTML =
       "You can chain my body, but you will never chain my warrior spirit!.";
-    document.getElementById("char-img").src = "img/crane.png";
+    charImgEl.src = "img/crane.png";
   } else if (name === "croc" || name === "master croc") {
-    document.getElementById("char-name").innerHTML = "Croc";
-    document.getElementById("char-qoute").innerHTML = "Vengeance is served!";
-    document.getElementById("char-img").src = "img/croc.png";
+    charNameEl.innerHTML = "Croc";
+    charQouteEl.innerHTML = "Vengeance is served!";
+    charImgEl.src = "img/croc.png";
   } else if (name === "kai") {
-    document.getElementById("char-name").innerHTML = "Kai";
-    document.getElementById("char-qoute").innerHTML =
+    charNameEl.innerHTML = "Kai";
+    charQouteEl.innerHTML =
       "I fought by his side. I loved him like a brother. And he... betrayed me. Well, now I will destroy everything he has created!";
-    document.getElementById("char-img").src = "img/kai.png";
+    charImgEl.src = "img/kai.png";
   } else if (name === "mr. ping") {
-    document.getElementById("char-name").innerHTML = "Mr. Ping";
-    document.getElementById("char-qoute").innerHTML =
-      "We are noodle folk. Broth runs through our veins!";
-    document.getElementById("char-img").src = "img/mr-ping.png";
+    charNameEl.innerHTML = "Mr. Ping";
+    charQouteEl.innerHTML = "We are noodle folk. Broth runs through our veins!";
+    charImgEl.src = "img/mr-ping.png";
   } else if (name === "soothsayer") {
-    document.getElementById("char-name").innerHTML = "Soothsayer";
-    document.getElementById("char-qoute").innerHTML =
+    charNameEl.innerHTML = "Soothsayer";
+    charQouteEl.innerHTML =
       "Your story may not have such a happy beginning, but that doesn't make you who you are. It is the rest of your story, who you choose to be";
-    document.getElementById("char-img").src = "img/soothsayer.png";
+    charImgEl.src = "img/soothsayer.png";
   } else if (
     name === "storming ox" ||
     name === "master storming ox" ||
     name === "master ox"
   ) {
-    document.getElementById("char-name").innerHTML = "Storming Ox";
-    document.getElementById("char-qoute").innerHTML = "You insolent fool!";
-    document.getElementById("char-img").src = "img/storming-ox.png";
+    charNameEl.innerHTML = "Storming Ox";
+    charQouteEl.innerHTML = "You insolent fool!";
+    charImgEl.src = "img/storming-ox.png";
+  } else if (name === "tai lung" || name === "shifu son") {
+    charNameEl.innerHTML = "Tai Lung";
+    charQouteEl.innerHTML =
+      "So that is his name: Po... Finally, a worthy opponent! Our battle will be legendary!";
+    charImgEl.src = "img/tai-lung.png";
   } else {
-    document.getElementById("char-name").innerHTML = "?????";
-    document.getElementById("char-qoute").innerHTML = "---------";
-    document.getElementById("char-img").src = "img/question-mark.png";
+    charNameEl.innerHTML = "?????";
+    charQouteEl.innerHTML = "---------";
+    charImgEl.src = "img/question-mark.png";
   }
 }
